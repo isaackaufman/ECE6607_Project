@@ -5,6 +5,12 @@
 
 using namespace std;
 
+struct ResourceID {
+	char schoolID;
+	char serviceID;
+	uint16_t studentID;
+};
+
 class ID
 {
 	public:
@@ -30,6 +36,17 @@ class ID
 		map<int, string> getServiceIDs()
 		{
 			return serviceIDs;
+		}
+
+		int resourceIDtoInt(ResourceID* resID)
+		{
+			return ((resID->schoolID << 24) + (resID->serviceID << 16) + resID->studentID);
+		}
+
+		ResourceID* intToResourceID(int resID)
+		{
+			ResourceID r = { (char)(resID & 0xFF000000), (char)(resID & 0x00FF0000), (uint16_t)(resID & 0x0000FFFF) };
+			return &r;
 		}
 
 	private:

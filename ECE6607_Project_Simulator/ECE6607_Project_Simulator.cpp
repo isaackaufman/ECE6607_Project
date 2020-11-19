@@ -17,7 +17,6 @@ int main()
     map<int, string> serviceIDs = id->getServiceIDs();
 
     int resourceID = 0;
-    databaseInterface->get_appointments(resourceID);
     /* 
     * Create resource ID for student
     *   Prompt for school and service (show list of IDs)
@@ -26,6 +25,7 @@ int main()
 
 
     // get list of open appointments and prompt to schedule one
+    databaseInterface->get_appointments(resourceID);
 
     // return confirmation that appointment has been scheduled
     

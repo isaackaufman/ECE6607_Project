@@ -4,6 +4,9 @@
 class SchedulingInterface
 {
 	public:
-		SchedulingInterface(DatabaseInterface databaseInterface);
+		SchedulingInterface(DatabaseInterface* databaseInterface);
+	private:
+
+		DatabaseInterface* mDatabaseInterface;
 };
 
