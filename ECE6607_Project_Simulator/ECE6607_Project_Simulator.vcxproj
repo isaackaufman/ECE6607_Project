@@ -146,7 +146,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DatabaseInterface.h" />
-    <ClInclude Include="fast-cpp-csv-parser\csv.h" />
     <ClInclude Include="ID.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

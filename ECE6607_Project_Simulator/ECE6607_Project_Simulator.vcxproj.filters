@@ -26,9 +26,6 @@
     <ClInclude Include="DatabaseInterface.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="fast-cpp-csv-parser\csv.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="ID.h">
       <Filter>Header Files</Filter>
     </ClInclude>
