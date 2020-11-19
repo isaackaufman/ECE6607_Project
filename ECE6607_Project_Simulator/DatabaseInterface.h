@@ -5,12 +5,14 @@
 #include <ctime>
 #include <iostream>
 #include <filesystem>
+#include "ID.h"
 
 using namespace std;
 namespace fs = filesystem;
 
 struct Appointment
 {
+	string schoolName; // school this appointment this belong to
 	int service;       // service ID for this appointment
 	tm* time;          // appointment date and time
 	bool studentsOnly; // appointment only for registered students of the school
@@ -22,7 +24,7 @@ class DatabaseInterface
 	public:
 		DatabaseInterface(std::string databaseDirectory);
 
-		list<Appointment> get_appointments(int resourceID);
+		list<Appointment> get_appointments(struct ResourceID);
 
 		void confirm_appointment(Appointment appointment);
 

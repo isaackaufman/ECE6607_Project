@@ -16,7 +16,7 @@ int main()
     map<int, string> schoolIDs = id->getSchoolIDs();
     map<int, string> serviceIDs = id->getServiceIDs();
 
-    int resourceID = 0;
+    struct ResourceID rID = { 0, 0, 0 };
     /* 
     * Create resource ID for student
     *   Prompt for school and service (show list of IDs)
@@ -25,8 +25,16 @@ int main()
 
 
     // get list of open appointments and prompt to schedule one
-    databaseInterface->get_appointments(resourceID);
+    databaseInterface->get_appointments(rID);
 
     // return confirmation that appointment has been scheduled
+
+    struct tm timeInfo;
+    timeInfo.tm_year = 120;
+    timeInfo.tm_mon = 11;
+    timeInfo.tm_mday = 12;
+    timeInfo.tm_hour = 10;
+    Appointment a = { "Georgia Institute of Technology", 0, &timeInfo, 1, 0 };
+    databaseInterface->confirm_appointment(a);
     
 }
