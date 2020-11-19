@@ -15,7 +15,6 @@ struct Appointment
 	tm* time;          // appointment date and time
 	bool studentsOnly; // appointment only for registered students of the school
 	bool filled;       // appointment has been filled
-	int studentID;     // ID of student who has filled this appointment
 };
 
 class DatabaseInterface

@@ -1,18 +1,17 @@
-// ECE6607_Project_Simulator.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
 using namespace std;
 
 #include <iostream>
 #include <string>
 #include "DatabaseInterface.h"
 #include "ID.h"
+#include "SchedulingInterface.h"
 
 int main()
 {
 
     ID* id = new ID();
     DatabaseInterface* databaseInterface = new DatabaseInterface("AppointmentDatabase");
+    //SchedulingInterface* scheduler = new SchedulingInterface(*databaseInterface);
 
     map<int, string> schoolIDs = id->getSchoolIDs();
     map<int, string> serviceIDs = id->getServiceIDs();
@@ -24,7 +23,7 @@ int main()
     *   Prompt for school and service (show list of IDs)
     *   Generate random student ID and display final resource ID
     */
-    
+
 
     // get list of open appointments and prompt to schedule one
 

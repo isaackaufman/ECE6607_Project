@@ -21,12 +21,18 @@
     <ClCompile Include="DatabaseInterface.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="SchedulingInterface.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DatabaseInterface.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ID.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SchedulingInterface.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
