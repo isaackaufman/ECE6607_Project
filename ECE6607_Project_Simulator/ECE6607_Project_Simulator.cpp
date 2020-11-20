@@ -32,9 +32,9 @@ int main()
     struct tm timeInfo;
     timeInfo.tm_year = 120;
     timeInfo.tm_mon = 11;
-    timeInfo.tm_mday = 12;
+    timeInfo.tm_mday = 21;
     timeInfo.tm_hour = 10;
-    Appointment a = { "Georgia Institute of Technology", 0, &timeInfo, 1, 0 };
+    Appointment a = { "Georgia Institute of Technology", 0, &timeInfo, true, false };
     databaseInterface->confirm_appointment(a);
     
 }
