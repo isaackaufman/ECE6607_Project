@@ -32,7 +32,7 @@ Appointment DatabaseInterface::stoAppointment(string &line, string &path)
     return a;
 }
 
-list<Appointment> DatabaseInterface::get_appointments(struct ResourceID &rID)
+list<Appointment> DatabaseInterface::getAppointments(struct ResourceID &rID)
 {
     fstream inFile;
     list<Appointment> temp = { };
@@ -41,7 +41,7 @@ list<Appointment> DatabaseInterface::get_appointments(struct ResourceID &rID)
         string line;
         fs::path databases(entry.path());
 
-        cout << databases.filename() << endl; // current school's database
+        //cout << databases.filename() << endl; // current school's database
 
         string path{ databases.filename().u8string() };
 
@@ -56,7 +56,7 @@ list<Appointment> DatabaseInterface::get_appointments(struct ResourceID &rID)
                 char buffer[80];
                 strftime(buffer, sizeof(buffer), "%d-%m-%Y %H:00", a.time);
                 string str(buffer);
-                cout << "University: " << a.schoolName << ", Resource ID: " << a.service << ", Date: " << str << ", Non-affiliated Students? " << std::boolalpha << a.studentsOnly << ", Filled? " << a.filled << endl;
+                //cout << "University: " << a.schoolName << ", Resource ID: " << a.service << ", Date: " << str << ", Non-affiliated Students? " << std::boolalpha << a.studentsOnly << ", Filled? " << a.filled << endl;
                 temp.push_back(a);
             }
         }
@@ -65,7 +65,7 @@ list<Appointment> DatabaseInterface::get_appointments(struct ResourceID &rID)
     return temp;
 }
 
-void DatabaseInterface::confirm_appointment(Appointment &app)
+void DatabaseInterface::confirmAppointment(Appointment &app)
 {
     string input;
     ifstream inFile("AppointmentDatabase//" + app.schoolName);

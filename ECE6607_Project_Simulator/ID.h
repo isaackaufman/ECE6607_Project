@@ -6,8 +6,8 @@
 using namespace std;
 
 struct ResourceID {
-	char schoolID;
-	char serviceID;
+	uint8_t schoolID;
+	uint8_t serviceID;
 	uint16_t studentID;
 };
 
@@ -47,6 +47,16 @@ class ID
 		{
 			ResourceID r = { (char)(resID & 0xFF000000), (char)(resID & 0x00FF0000), (uint16_t)(resID & 0x0000FFFF) };
 			return &r;
+		}
+
+		ResourceID* generateResourceID(uint8_t schoolID, uint8_t serviceID)
+		{
+			// get a random student ID within the uint16_t range
+			uint16_t studentID = rand() % 65536;
+
+			ResourceID resID = { schoolID, serviceID, studentID };
+
+			return &resID;
 		}
 
 	private:
