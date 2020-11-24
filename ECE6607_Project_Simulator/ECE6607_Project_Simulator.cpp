@@ -37,10 +37,16 @@ int main()
     cout << "Select your service: ";
     cin >> serviceID;
 
-    struct ResourceID* rID = id->generateResourceID(schoolID, serviceID);
+    // display resourceID
+    struct ResourceID rID = id->generateResourceID(schoolID, serviceID);
+    string schoolIDString = id->padToThreeDigits(to_string((int)rID.schoolID));
+    string serviceIDString = id->padToThreeDigits(to_string((int)rID.serviceID));
+    string studentIDString = id->padToThreeDigits(to_string((rID.studentID >> 8))) + "." + id->padToThreeDigits(to_string(rID.studentID & 255));
+
+    cout << "Your resource ID is: " << schoolIDString << "." << serviceIDString << "." << studentIDString << endl;
 
     // get list of open appointments and prompt to schedule one
-    list<Appointment> appointments = databaseInterface->getAppointments(*rID);
+    list<Appointment> appointments = databaseInterface->getAppointments(rID);
     
     if (appointments.size() == 0)
     {

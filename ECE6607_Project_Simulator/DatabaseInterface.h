@@ -24,7 +24,7 @@ class DatabaseInterface
 	public:
 		DatabaseInterface(std::string databaseDirectory);
 
-		list<Appointment> getAppointments(struct ResourceID &rID);
+		list<Appointment> getAppointments(struct ResourceID rID);
 
 		void confirmAppointment(Appointment &app);
 

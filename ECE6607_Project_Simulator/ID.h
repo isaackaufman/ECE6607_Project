@@ -26,6 +26,9 @@ class ID
 			serviceIDs[0] = "counseling";
 			serviceIDs[1] = "gym";
 			serviceIDs[2] = "swimming pool";
+
+			// seed random
+			srand(time(0));
 		}
 
 		map<int, string> getSchoolIDs()
@@ -43,20 +46,30 @@ class ID
 			return ((resID->schoolID << 24) + (resID->serviceID << 16) + resID->studentID);
 		}
 
-		ResourceID* intToResourceID(int resID)
+		ResourceID intToResourceID(int resID)
 		{
-			ResourceID r = { (char)(resID & 0xFF000000), (char)(resID & 0x00FF0000), (uint16_t)(resID & 0x0000FFFF) };
-			return &r;
+			ResourceID r = { (char)((resID & 0xFF000000) >> 24), (char)((resID & 0x00FF0000) >> 16), (uint16_t)(resID & 0x0000FFFF) };
+			return r;
 		}
 
-		ResourceID* generateResourceID(uint8_t schoolID, uint8_t serviceID)
+		ResourceID generateResourceID(uint8_t schoolID, uint8_t serviceID)
 		{
 			// get a random student ID within the uint16_t range
 			uint16_t studentID = rand() % 65536;
 
 			ResourceID resID = { schoolID, serviceID, studentID };
 
-			return &resID;
+			return resID;
+		}
+
+		string padToThreeDigits(string s)
+		{
+			while (s.length() < 3)
+			{
+				s = "0" + s;
+			}
+
+			return s;
 		}
 
 	private:

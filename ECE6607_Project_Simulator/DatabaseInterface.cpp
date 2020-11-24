@@ -32,7 +32,7 @@ Appointment DatabaseInterface::stoAppointment(string &line, string &path)
     return a;
 }
 
-list<Appointment> DatabaseInterface::getAppointments(struct ResourceID &rID)
+list<Appointment> DatabaseInterface::getAppointments(struct ResourceID rID)
 {
     fstream inFile;
     list<Appointment> temp = { };
@@ -40,8 +40,6 @@ list<Appointment> DatabaseInterface::getAppointments(struct ResourceID &rID)
     {
         string line;
         fs::path databases(entry.path());
-
-        //cout << databases.filename() << endl; // current school's database
 
         string path{ databases.filename().u8string() };
 
