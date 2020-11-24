@@ -51,6 +51,7 @@ int main()
     if (appointments.size() == 0)
     {
         cout << "Sorry, there are no open appointments." << endl;
+        system("pause");
         return 1;
     }
 
@@ -73,7 +74,8 @@ int main()
     databaseInterface->confirmAppointment(a);
 
     // return confirmation that appointment has been scheduled
-    cout << "Appointment successfully scheduled!";
+    cout << "Appointment successfully scheduled!" << endl;
+    system("pause");
     
     return 0;
 }
